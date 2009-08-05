@@ -12,8 +12,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0\n"
-"Language-Code: en\n"
-"Language-Name: English\n"
+"Language-Code: de\n"
+"Language-Name: Deutsch\n"
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: simplelayout\n"
 
@@ -63,10 +63,7 @@ msgid "simplelayout_label_imageClickable"
 msgstr "Bild anklickbar"
 
 msgid "simplelayout_help_imageClickable"
-msgstr "Bild anklickbar"
-
-msgid ""
-msgstr ""
+msgstr "Falls collective.greybox installiert ist, wird das Bild in der Greybox dargestellt."
 
 msgid "simplelayout_label_teaserblock"
 msgstr "Markieren, wenn der Block ein 'teaser' ist."
@@ -74,3 +71,8 @@ msgstr "Markieren, wenn der Block ein 'teaser' ist."
 msgid "simplelayout_help_teaserblock"
 msgstr "'Teaser' block zeigt zusammenhangende Inhalte (z.B. für den front page)." 
 
+msgid "label_schema_image"
+msgstr "Bild"
+
+msgid "simplelayout_help_image"
+msgstr "Wählen Sie ein Bild aus"
