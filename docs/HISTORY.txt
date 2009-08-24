@@ -1,14 +1,13 @@
 Changelog
 =========
 
-2.3
-----------------
-* add mixinklasse module
-* use simplelayout sizes for atct image scales
 
 2.2
 ----------------
+* add mixinklasse module
+* use simplelayout sizes for atct image scales
 * fix translations [julian.infanger]
+
 
 2.1
 ----------------
