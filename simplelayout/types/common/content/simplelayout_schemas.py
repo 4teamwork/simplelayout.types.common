@@ -11,7 +11,7 @@ imageSchema = Schema((
     ImageField('image',
         required = False,
         original_size = ORIGINAL_SIZE,
-        sizes= SIMPLE_LAYOUT_SIZES,
+        sizes= 'getSlImageSizes',
         schemata='image',
         widget = ImageWidget(
             description = 'Choose an Image from Filesystem',

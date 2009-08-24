@@ -10,7 +10,7 @@ from Acquisition import aq_inner
 from Products.CMFCore.permissions import View
 from simplelayout.types.common.interfaces import IParagraph
 from simplelayout.base.interfaces import ISimpleLayoutBlock
-
+from mixinklasses import ImageScalesMixin
 
 schema = Schema((
      BooleanField('showTitle',
@@ -60,7 +60,7 @@ paragraph_schema.moveField('teaserblock',before="relatedItems")
 ##code-section after-schema #fill in your manual code here
 ##/code-section after-schema
 
-class Paragraph(ATDocumentBase):
+class Paragraph(ImageScalesMixin,ATDocumentBase):
     """
     """
     security = ClassSecurityInfo()
@@ -106,9 +106,30 @@ class Paragraph(ATDocumentBase):
             kwargs['alt'] = self.getImageAltText()
         return self.getField('image').tag(self, **kwargs)
 
-    #XXX!:
-    #def getImageClickable(self):
-    #    return False
+
+    def __bobo_traverse__(self, REQUEST, name):
+        """Give transparent access to image scales. This hooks into the
+        low-level traversal machinery, checking to see if we are trying to
+        traverse to /path/to/object/image_<scalename>, and if so, returns
+        the appropriate image content.
+        """
+        if name.startswith('image'):
+            field = self.getField('image')
+            image = None
+            if name == 'image':
+                image = field.getScale(self)
+            else:
+                scalename = name[len('image_'):]
+                if scalename in field.getAvailableSizes(self):
+                    image = field.getScale(self, scale=scalename)
+                    
+            if image is not None and not isinstance(image, basestring):
+                # image might be None or '' for empty images
+                return image
+
+        return super(Paragraph, self).__bobo_traverse__(REQUEST, name)
+
+
 
 registerType(Paragraph, PROJECTNAME)
 
