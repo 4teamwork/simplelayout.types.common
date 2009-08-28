@@ -36,6 +36,7 @@ class ImageScalesMixin(object):
                 
             for scale in scales:
                 size = getattr(conf, scale, 0)
-                image_sizes[scale] = (size,10000)
+                if size != 0:
+                    image_sizes[scale] = (size,10000)
             
         return image_sizes
