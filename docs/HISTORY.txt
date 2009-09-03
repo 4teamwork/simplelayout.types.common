@@ -3,6 +3,7 @@ Changelog
 
 2.3
 ----------------
+* fix permissions for delete actions in blockable types [mathias.leimgruber]
 
 
 2.2

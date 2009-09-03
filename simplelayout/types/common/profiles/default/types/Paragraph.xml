@@ -55,7 +55,7 @@
  <action title="Delete" action_id="sl-delete" category="sl-actions"
     condition_expr=""
     url_expr="string:${here/absolute_url}/delete_confirmation" visible="True">
-  <permission value="Delete objects"/>
+  <permission value="Modify portal content"/>
  </action>
  <action title="Move Up" action_id="sl-moveup" category="sl-actions"
     condition_expr=""
