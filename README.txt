@@ -1,6 +1,7 @@
 Introduction
 ============
 
+This package is a dependency of simplelayout.base. 
 following features for simplelayout are provided by this package 
 
 * Page Type
@@ -11,6 +12,9 @@ following features for simplelayout are provided by this package
   - configurable like show title, show references, etc...
 * make image, link and files to blocks
 * provides block views and a fallback view
+
+
+
 
 
 Copyright and credits
