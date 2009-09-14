@@ -1,13 +1,21 @@
 Changelog
 =========
 
+2.4
+----------------
+
+* fixed minor bug in page.py [victor.baumann]
+
+
 2.3
 ----------------
+
 * fix permissions for delete actions in blockable types [mathias.leimgruber]
 
 
 2.2
 ----------------
+
 * add mixinklasse module
 * use simplelayout sizes for atct image scales
 * fix translations [julian.infanger]
@@ -15,6 +23,7 @@ Changelog
 
 2.1
 ----------------
+
 * don't show regular Document(Page) [mathias.leimgruber]
 * remove leadimage from Page schemata [mathias.leimgruber]
 * extend plone image with alternative-text field [arno.blumer]

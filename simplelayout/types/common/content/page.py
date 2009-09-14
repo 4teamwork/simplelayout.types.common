@@ -60,38 +60,5 @@ class Page(ATFolder):
         catalog = getToolByName(self, "portal_catalog")
         return catalog.uniqueValuesFor("page_types")
 
-    security.declareProtected(View, 'tag')
-    def tag(self, **kwargs):
-        """Generate image tag using the api of the ImageField
-        """
-        if 'title' not in kwargs:
-            if self.getImageAltText():
-                kwargs['title'] = self.getImageAltText()
-            elif self.getImageCaption():
-                kwargs['title'] = self.getImageCaption()
-            else:
-                kwargs['title'] = self.Title()
-        if 'alt' not in kwargs:
-            kwargs['alt'] = self.getImageAltText()
-        return self.getField('image').tag(self, **kwargs)
-        
-    def __bobo_traverse__(self, REQUEST, name):
-        """Transparent access to image scales
-        """
-        if name.startswith('image'):
-            field = self.getField('image')
-            image = None
-            if name == 'image':
-                image = field.getScale(self)
-            else:
-                scalename = name[len('image_'):]
-                if scalename in field.getAvailableSizes(self):
-                    image = field.getScale(self, scale=scalename)
-            if image is not None and not isinstance(image, basestring):
-                # image might be None or '' for empty images
-                return image
-
-        return ATFolder.__bobo_traverse__(self, REQUEST, name)
-
 registerType(Page, PROJECTNAME)
 
