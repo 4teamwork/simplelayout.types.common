@@ -30,18 +30,7 @@ class paragraphView(BrowserView):
         #auto redirect to the anchor
         param = '/#%s' % context.id
 
-        if self._checkForEditMode(context):
-            param = param+'?edit_mode=1'
-
         return self.context.REQUEST.RESPONSE.redirect(context.aq_parent.absolute_url()+param)
-
-    #XXX: This function is also used in simplelayout.viewlets, create a utility    
-    def _checkForEditMode(self,context):
-        edit_mode = False
-        if context.REQUEST.get('edit_mode',False):
-            edit_mode = True
-        if context.REQUEST.get('HTTP_REFERER', 'dummytext_longer_than_five_chars')[-5:] == '/edit':
-            edit_mode = True
  
     @property
     def macros(self):
@@ -129,14 +118,6 @@ class ImageView(BrowserView):
         super(BrowserView, self).__init__(context, request)
         blockconf = IBlockConfig(self.context)
         self.image_layout = blockconf.image_layout
-
-    #XXX: This function is also used in simplelayout.viewlets, create a utility    
-    def _checkForEditMode(self,context):
-        edit_mode = False
-        if context.REQUEST.get('edit_mode',False):
-            edit_mode = True
-        if context.REQUEST.get('HTTP_REFERER', 'dummytext_longer_as_five_chars')[-5:] == '/edit':
-            edit_mode = True
         
     def getCSSClass(self):
         layout = self.image_layout

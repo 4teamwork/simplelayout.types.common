@@ -1,6 +1,14 @@
 Changelog
 =========
 
+2.5 
+----------------
+
+* removed unused checkforeditmode method  [mathias.leimgruber]
+* removed simplelayout-edit-button and replace it by the plones
+  default one [mmathias.leimgruber]
+
+
 2.4
 ----------------
 
