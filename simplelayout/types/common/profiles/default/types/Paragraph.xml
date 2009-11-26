@@ -57,18 +57,6 @@
     url_expr="string:${here/absolute_url}/delete_confirmation" visible="True">
   <permission value="Modify portal content"/>
  </action>
- <action title="Move Up" action_id="sl-moveup" category="sl-actions"
-    condition_expr=""
-    url_expr="string:${here/absolute_url}/block_control?action=moveup"
-    visible="True">
-  <permission value="Modify portal content"/>
- </action>
- <action title="Move Down" action_id="sl-movedo" category="sl-actions"
-    condition_expr=""
-    url_expr="string:${here/absolute_url}/block_control?action=movedo"
-    visible="True">
-  <permission value="Modify portal content"/>
- </action>
  <action title="Squarish" action_id="sl-small" category="sl-layouts"
     condition_expr=""
     url_expr="string:${here/absolute_url}/block_control"
