@@ -7,6 +7,7 @@ Changelog
 * removed unused checkforeditmode method  [mathias.leimgruber]
 * removed simplelayout-edit-button and replace it by the plones
   default one [mmathias.leimgruber]
+* removed move up/down actions [mathias.leimgruber]
 
 
 2.4
