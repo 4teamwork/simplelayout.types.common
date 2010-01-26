@@ -7,8 +7,7 @@ product_globals = globals()
 
 
 PROJECTNAME = "simplelayout.types.common"
-DEPENDENCIES = ('AddRemoveWidget',
-                'DataGridField',
+DEPENDENCIES = ('DataGridField',
                )
 
 ADD_PERMISSIONS = { 
