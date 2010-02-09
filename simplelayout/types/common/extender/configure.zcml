@@ -6,6 +6,6 @@
     <include package="archetypes.schemaextender" />
              
     <adapter factory=".extend.ImageExtender"
-             provides="archetypes.schemaextender.interfaces.ISchemaExtender"/>
+             provides="archetypes.schemaextender.interfaces.IOrderableSchemaExtender"/>
              
 </configure> 

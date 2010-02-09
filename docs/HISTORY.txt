@@ -1,6 +1,11 @@
 Changelog
 =========
 
+2.5.2
+----------------
+* use orderable schema from schemaextender [mathias.leimgruber]
+
+
 2.5.1
 ----------------
 * removed AddRemoveWidget dependency [mathias.leimgruber]
