@@ -1,9 +1,10 @@
+from zope.interface import implements
 from Products.validation.config import validation
 from Products.validation.interfaces.IValidator import IValidator
 
 class HandleEmptyTextFieldValidator:
 
-    __implements__ = IValidator
+    implements(IValidator)
 
     def __init__(self, name, title='', description=''):
         self.name = name

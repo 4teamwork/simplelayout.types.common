@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = '2.5.2'
+version = open('izug/blog/version.txt').read().strip()
 
 setup(name='simplelayout.types.common',
       version=version,
@@ -17,7 +17,7 @@ setup(name='simplelayout.types.common',
       keywords='',
       author='Mathias LEIMGRUBER (4teamwork)',
       author_email='m.leimgruber@t4amwork.ch',
-      url='http://psc.4teamwork.ch/oss/simplelayout',
+      url='http://plone.org/products/simplelayout.types.common',
       license='GPL',
       packages=find_packages(exclude=['ez_setup']),
       namespace_packages=['simplelayout', 'simplelayout.types'],
@@ -25,7 +25,6 @@ setup(name='simplelayout.types.common',
       zip_safe=False,
       install_requires=[
           'setuptools',
-          'Products.AddRemoveWidget'
           # -*- Extra requirements: -*-
       ],
       entry_points="""

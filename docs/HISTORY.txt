@@ -1,6 +1,17 @@
 Changelog
 =========
 
+3.0
+--------------
+* added icon_expr directly to the content types xml
+  [12.07.2010, mathias.leimgruber]
+
+* removed old zope2 style imports
+  [12.07.2010, mathias.leimgruber]
+  
+* some changes in views and templates for plone4
+  [12.07.2010, mathias.leimgruber]
+
 2.5.2
 ----------------
 * use orderable schema from schemaextender [mathias.leimgruber]

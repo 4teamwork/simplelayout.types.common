@@ -58,12 +58,12 @@
     visible="False">
   <permission value="ATContentTypes: View history"/>
  </action>
- <action title="Edit" action_id="sl-edit" category="sl-actions"
+ <action title="Edit" action_id="sl-edit" category="sl-actions" icon_expr="string:edit.gif"
     condition_expr="" url_expr="string:${object_url}/edit" visible="True">
   <permission value="Modify portal content"/>
  </action>
  <action title="Delete" action_id="sl-delete" category="sl-actions"
-    condition_expr=""
+    condition_expr="" icon_expr="string:delete_icon.gif"
     url_expr="string:${here/absolute_url}/delete_confirmation" visible="True">
   <permission value="Modify portal content"/>
  </action>

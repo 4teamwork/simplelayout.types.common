@@ -27,7 +27,7 @@
 
 
     <tal:ifteaser tal:condition="here/getTeaserblock | nothing" 
-                  tal:define="wtool here/portal_workflow;
+                  tal:define="wtool view/wtool;
                               isViewTemplate python: True;
                               plone_view here/@@plone;
                               normalizeString nocall: context/@@plone/normalizeString">

@@ -112,6 +112,10 @@ class BlockView(BrowserView):
         blockconf = IBlockConfig(self.context)
         return blockconf.block_height or ''
     
+    @property
+    def wtool(self):
+        return getToolByName(self.context, 'portal_workflow')
+    
 class ImageView(BrowserView):
 
     def __init__(self, context, request):
