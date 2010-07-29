@@ -3,6 +3,10 @@ Changelog
 
 3.0
 --------------
+* included patch, which fixes a problem with long image captions
+  thanks to Carsten Rebbien <cr at comlounge dot net>
+  [29.07.2010, mathias.leimgruber]
+
 * added icon_expr directly to the content types xml
   [12.07.2010, mathias.leimgruber]
 

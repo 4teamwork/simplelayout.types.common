@@ -106,7 +106,14 @@ class BlockView(BrowserView):
                                                       alt=alt,
                                                       title = alt
                                                       )
-    
+
+    def image_wrapper_style(self):
+        """ sets width of the div wrapping the image, so the caption linebreaks """
+        blockconf = IBlockConfig(self.context)
+        width, height = blockconf.image_dimension
+        return "width: %spx" % width
+
+
 
     def getBlockHeight(self):
         blockconf = IBlockConfig(self.context)

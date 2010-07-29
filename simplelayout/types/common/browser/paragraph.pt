@@ -8,7 +8,8 @@
                                 style string:height:${view/getBlockHeight}">
 	<h3 tal:content="here/Title" tal:condition="here/getShowTitle|python:True" />
 	<a tal:attributes="name here/id" ></a>
-	<div class="sl-img-wrapper" tal:condition="view/checkForImage">
+        <div class="sl-img-wrapper" tal:condition="view/checkForImage"
+             tal:attributes="style view/image_wrapper_style">
 					<a  target="_blank"
 						tal:attributes="
 										rel string:gb_image[${context/UID}];
