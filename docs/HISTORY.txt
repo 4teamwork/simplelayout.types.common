@@ -3,8 +3,13 @@ Changelog
 
 3.0
 --------------
+
+* Made simplelayout file view work again. Cleaned up the views
+  [07.09.2010, jbaumann]
+
 * included patch, which fixes a problem with long image captions
   thanks to Carsten Rebbien <cr at comlounge dot net>
+
   [29.07.2010, mathias.leimgruber]
 
 * added icon_expr directly to the content types xml
