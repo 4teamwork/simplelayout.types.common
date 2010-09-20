@@ -1,8 +1,12 @@
 Changelog
 =========
 
+
 3.0
 --------------
+
+* Added plone.app.blog support
+  [20.09.2010, jbaumann]
 
 * Made simplelayout file view work again. Cleaned up the views
   [07.09.2010, jbaumann]
@@ -17,7 +21,7 @@ Changelog
 
 * removed old zope2 style imports
   [12.07.2010, mathias.leimgruber]
-  
+
 * some changes in views and templates for plone4
   [12.07.2010, mathias.leimgruber]
 
@@ -31,7 +35,7 @@ Changelog
 * removed AddRemoveWidget dependency [mathias.leimgruber]
 
 
-2.5 
+2.5
 ----------------
 
 * removed unused checkforeditmode method  [mathias.leimgruber]

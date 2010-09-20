@@ -3,10 +3,11 @@
     xmlns:five="http://namespaces.zope.org/five"
     xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
     xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:zcml="http://namespaces.zope.org/zcml"
     i18n_domain="simplelayout">
 
     <five:registerPackage package="." initialize=".initialize" />
-    
+
     <!-- Register the installation GenericSetup extension profile -->
     <genericsetup:registerProfile
       name="default"
@@ -18,8 +19,8 @@
 
     <include package=".browser" />
     <include package=".extender" />
-    
-            
+
+
     <five:implements
         class="simplelayout.types.common.content.paragraph.Paragraph"
         interface="simplelayout.types.common.interfaces.IParagraph"
@@ -32,16 +33,21 @@
         class="Products.ATContentTypes.content.link.ATLink"
         interface="simplelayout.base.interfaces.ISimpleLayoutBlock"
         />
-        
+
     <five:implements
         class="Products.ATContentTypes.content.file.ATFile"
         interface="simplelayout.base.interfaces.ISimpleLayoutBlock"
         />
+
     <five:implements
         class="Products.ATContentTypes.content.image.ATImage"
         interface="simplelayout.base.interfaces.ISimpleLayoutBlock"
         />
 
-
+    <five:implements
+        zcml:condition="installed plone.app.blob"
+        class="plone.app.blob.content.ATBlob"
+        interface="simplelayout.base.interfaces.ISimpleLayoutBlock"
+        />
 
 </configure>
