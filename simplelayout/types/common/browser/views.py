@@ -83,10 +83,14 @@ class BlockView(BrowserView):
             name='simplelayout.image.scaler')
         img_attrs = image_util.get_image_attributes(self.context)
         scales = queryMultiAdapter((self.context, self.request), name="images")
-        return scales.scale(
-            'image',
-            width=img_attrs['width'],
-            height=img_attrs['height']).tag(title=title, alt=alt)
+
+        if self.context.getField('image'):
+            return scales.scale(
+                'image',
+                width=img_attrs['width'],
+                height=img_attrs['height']).tag(title=title, alt=alt)
+        
+        return ''
 
     def image_wrapper_style(self):
         """ sets width of the div wrapping the image, so the
