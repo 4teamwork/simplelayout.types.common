@@ -1,46 +1,44 @@
 from zope.interface import implements
 from Products.CMFCore.utils import getToolByName
 from AccessControl import ClassSecurityInfo
-from Products.Archetypes.atapi import *
-from simplelayout.types.common.config import *
+from Products.Archetypes import atapi
+from simplelayout.types.common import config
 from simplelayout_schemas import textSchema, imageSchema, finalize_simplelayout_schema
 from Products.ATContentTypes.content.document import ATDocumentBase
 from Products.ATContentTypes.content.schemata import ATContentTypeSchema
-from Acquisition import aq_inner
 from Products.CMFCore.permissions import View
 from simplelayout.types.common.interfaces import IParagraph
 from simplelayout.base.interfaces import ISimpleLayoutBlock
-from mixinklasses import ImageScalesMixin
 
-schema = Schema((
-     BooleanField('showTitle',
+schema = atapi.Schema((
+     atapi.BooleanField('showTitle',
                 schemata='default',
                 default=0,
-                widget=BooleanWidget(description = "Show title",
+                widget=atapi.BooleanWidget(description = "Show title",
                                              description_msgid = "simplelayout_help_showtitle",
                                              label = "Show Title",
                                              label_msgid = "simplelayout_label_showtitle",
                                              i18n_domain = "simplelayout",
-                                             )),   
-     BooleanField('imageClickable',
+                                             )),
+     atapi.BooleanField('imageClickable',
                 schemata='image',
                 default=0,
-                widget=BooleanWidget(description = "imageClickable",
+                widget=atapi.BooleanWidget(description = "imageClickable",
                                              description_msgid = "simplelayout_help_imageClickable",
                                              label = "Image Clickable",
                                              label_msgid = "simplelayout_label_imageClickable",
                                              i18n_domain = "simplelayout",
-                                             )),   
-                                             
-     BooleanField('teaserblock',
+                                             )),
+
+     atapi.BooleanField('teaserblock',
                 schemata='settings',
                 default=0,
-                widget=BooleanWidget(description = "teaser blocks shows their related items (ex. for frontpage)",
+                widget=atapi.BooleanWidget(description = "teaser blocks shows their related items (ex. for frontpage)",
                                              description_msgid = "simplelayout_help_teaserblock",
                                              label = "Tick if this block is a teaser",
                                              label_msgid = "simplelayout_label_teaserblock",
                                              i18n_domain = "simplelayout",
-                                             )),   
+                                             )),
 ),
 )
 
@@ -60,17 +58,17 @@ paragraph_schema.moveField('teaserblock',before="relatedItems")
 ##code-section after-schema #fill in your manual code here
 ##/code-section after-schema
 
-class Paragraph(ImageScalesMixin,ATDocumentBase):
+class Paragraph(ATDocumentBase):
     """
     """
     security = ClassSecurityInfo()
-    implements(ISimpleLayoutBlock)
+    implements(IParagraph, ISimpleLayoutBlock)
     schema = paragraph_schema
 
     # Methods
 
     #XXX we should use eventhandler
-    #special workarround for empty titles, otherwise we have "[...]" 
+    #special workarround for empty titles, otherwise we have "[...]"
     #results in the search function
     def setTitle(self, value):
         portal_transforms = getToolByName(self, 'portal_transforms')
@@ -89,7 +87,7 @@ class Paragraph(ImageScalesMixin,ATDocumentBase):
                 field.set(self,cropped.lstrip())
         else:
             field.set(self,value)
- 
+
 
     security.declareProtected(View, 'tag')
     def tag(self, **kwargs):
@@ -106,30 +104,4 @@ class Paragraph(ImageScalesMixin,ATDocumentBase):
             kwargs['alt'] = self.getImageAltText()
         return self.getField('image').tag(self, **kwargs)
 
-
-    def __bobo_traverse__(self, REQUEST, name):
-        """Give transparent access to image scales. This hooks into the
-        low-level traversal machinery, checking to see if we are trying to
-        traverse to /path/to/object/image_<scalename>, and if so, returns
-        the appropriate image content.
-        """
-        if name.startswith('image'):
-            field = self.getField('image')
-            image = None
-            if name == 'image':
-                image = field.getScale(self)
-            else:
-                scalename = name[len('image_'):]
-                if scalename in field.getAvailableSizes(self):
-                    image = field.getScale(self, scale=scalename)
-                    
-            if image is not None and not isinstance(image, basestring):
-                # image might be None or '' for empty images
-                return image
-
-        return super(Paragraph, self).__bobo_traverse__(REQUEST, name)
-
-
-
-registerType(Paragraph, PROJECTNAME)
-
+atapi.registerType(Paragraph, config.PROJECTNAME)
