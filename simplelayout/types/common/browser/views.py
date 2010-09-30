@@ -6,6 +6,8 @@ from simplelayout.base.interfaces import IBlockConfig, IScaleImage
 from zope.component import getMultiAdapter
 from zope.component import getUtility
 from zope.i18n import translate
+from zope.component import queryMultiAdapter
+
 
 
 #dummy for refactoring
@@ -76,44 +78,26 @@ class BlockView(BrowserView):
         if not title:
             title = alt
 
-        if getattr(self.context.aq_explicit,'getContact',False):
-            return self.context.getContact().getField('foto').tag(
-                self.context.getContact(),
-                scale='thumbnail',
-                alt=alt,
-                title = alt
-                )
-
-        blockconf = IBlockConfig(self.context)
-        scale = blockconf.image_scale
-        dimension = blockconf.image_dimension
-
-        #this peace of code is just for the first hit, otherwise we have
-        # to write a migration.
-        if not dimension:
-            image_util = getUtility(IScaleImage,
-                                    name='simplelayout.image.scaler')
-            scale,dimension =  image_util.getScaledImageTag(self.context)
-            blockconf.image_scale = scale
-            blockconf.image_dimension = dimension
-
-        width, height = blockconf.image_dimension
-        return self.context.getField('image').tag(self.context,
-                                                  scale=blockconf.image_scale,
-                                                  width=width,
-                                                  height=height,
-                                                  alt=alt,
-                                                  title = alt
-                                                  )
+        image_util = getUtility(
+            IScaleImage,
+            name='simplelayout.image.scaler')
+        img_attrs = image_util.get_image_attributes(self.context)
+        scales = queryMultiAdapter((self.context, self.request), name="images")
+        return scales.scale(
+            'image',
+            width=img_attrs['width'],
+            height=img_attrs['height']).tag(title=title, alt=alt)
 
     def image_wrapper_style(self):
         """ sets width of the div wrapping the image, so the
         caption linebreaks
         """
-
-        blockconf = IBlockConfig(self.context)
-        width, height = blockconf.image_dimension
-        return "width: %spx" % width
+        
+        image_util = getUtility(
+            IScaleImage,
+            name='simplelayout.image.scaler')
+        img_attrs = image_util.get_image_attributes(self.context)
+        return "width: %spx" % img_attrs['width']
 
     def getBlockHeight(self):
         blockconf = IBlockConfig(self.context)
@@ -140,32 +124,23 @@ class ImageView(BrowserView):
 
 
     def getImageTag(self):
-        #title = unicode(self.context.Title(), self.context.getCharset())
+        """Use plone.app.imaging to scale and display the right image
+        """
         title = hasattr(self.context, 'imageAlternativeText') and \
             self.context.imageAlternativeText or ''
         alt = title
-        blockconf = IBlockConfig(self.context)
 
-        scale = blockconf.image_scale
-        dimension = blockconf.image_dimension
-        # this peace of code is just for the first hit, otherwise
-        # we have to write a migration.
-        if not dimension:
-            image_util = getUtility(IScaleImage,
-                                    name='simplelayout.image.scaler')
-            scale,dimension =  image_util.getScaledImageTag(self.context,
-                                                            'image')
-            blockconf.image_scale = scale
-            blockconf.image_dimension = dimension
+        image_util = getUtility(
+            IScaleImage,
+            name='simplelayout.image.scaler')
 
-        width, height = blockconf.image_dimension
-        return self.context.getField('image').tag(self.context,
-                                                  scale=blockconf.image_scale,
-                                                  width=width,
-                                                  height=height,
-                                                  alt=alt,
-                                                  title=title
-                                                  )
+        img_attrs = image_util.get_image_attributes(self.context)
+        scales = queryMultiAdapter((self.context, self.request), name="images")
+        return scales.scale(
+            'image',
+            width=img_attrs['width'],
+            height=img_attrs['height']).tag(title=title, alt=alt)
+
 
     def showTitleOfImage(self):
         show_image_title = hasattr(self.context, 'showImageTitle') and \
