@@ -1,19 +1,17 @@
-from Products.Archetypes.atapi import *
-from simplelayout.types.common.config import ORIGINAL_SIZE,TAG_SIZES,TAG_NAMES,SIMPLE_LAYOUT_SIZES
+from Products.Archetypes import atapi
+from simplelayout.types.common.config import ORIGINAL_SIZE
 from Products.ATContentTypes import ATCTMessageFactory as _
 from Products.CMFCore.permissions import ManagePortal
 from Products.validation import ValidationChain
-from Products.ATReferenceBrowserWidget.ATReferenceBrowserWidget import ReferenceBrowserWidget
 from Products.ATContentTypes.content.schemata import finalizeATCTSchema, marshall_register
 
 
-imageSchema = Schema((
-    ImageField('image',
+imageSchema = atapi.Schema((
+    atapi.ImageField('image',
         required = False,
         original_size = ORIGINAL_SIZE,
-        sizes= 'getSlImageSizes',
         schemata='image',
-        widget = ImageWidget(
+        widget = atapi.ImageWidget(
             description = 'Choose an Image from Filesystem',
             description_msgid='simplelayout_help_image',
             label= 'Image',
@@ -22,20 +20,20 @@ imageSchema = Schema((
             i18n_domain='simplelayout')
         ),
         
-    StringField('imageCaption',
+    atapi.StringField('imageCaption',
         required = False,
         searchable = True,
         schemata='image',        
-        widget = StringWidget(
+        widget = atapi.StringWidget(
             description = '',
             label = _(u'label_image_caption', default=u'Image Caption'),
             size = 40)
         ),
         
-    StringField('imageAltText',
+    atapi.StringField('imageAltText',
             schemata='image',
             required=False,
-            widget=StringWidget(description='Enter a value for imageAltText.',
+            widget=atapi.StringWidget(description='Enter a value for imageAltText.',
                 description_msgid='plone_help_imageAltText',
                 i18n_domain='simplelayout',
                 label='Alternativ Text',
@@ -46,13 +44,13 @@ imageSchema = Schema((
 )
 
 
-textSchema = Schema((
-    TextField('text',
+textSchema = atapi.Schema((
+    atapi.TextField('text',
               required=False,
               searchable=True,
               default_input_type = 'text/html',
               default_output_type = 'text/html',
-              widget = RichWidget(
+              widget = atapi.RichWidget(
                         description = '',
                         label = _(u'label_body_text', default=u'Body Text'),
                         rows = 25,),
