@@ -7,7 +7,6 @@
 	<div class="sl-img-wrapper" tal:condition="here/getImage">
 					<a  
 						tal:attributes="
-										rel string:gb_imageset[];
 										title context/Title;
 										href string:${context/absolute_url}/image_large">
 						<img tal:replace="structure view/getImageTag" />
