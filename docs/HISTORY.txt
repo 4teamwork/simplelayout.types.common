@@ -4,10 +4,11 @@ Changelog
 
 3.0
 --------------
+* added upload action for PloneFlashUpload to Page.
+  [05.10.2010, mathias.leimgruber]
 
 * implemented image scaling by plone.app.imaging. 
   [30.09.2010, mathias.leimgruber]
-
 
 * Added plone.app.blog support
   [20.09.2010, jbaumann]
