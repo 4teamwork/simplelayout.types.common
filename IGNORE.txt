@@ -3,3 +3,4 @@
 simplelayout.types.common.egg-info
 build
 dist
+*.mo
