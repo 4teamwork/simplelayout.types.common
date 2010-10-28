@@ -11,7 +11,7 @@
       for="*"
       name="paragraph_view"
       class=".views.paragraphView"
-      permission="zope.Public"
+      permission="zope2.View"
       allowed_attributes="macros"
       />
 
