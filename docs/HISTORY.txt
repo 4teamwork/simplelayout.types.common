@@ -4,6 +4,9 @@ Changelog
 
 3.0
 --------------
+* fixed getBlockHeight function
+  [27.12.2010, mathias.leimgruber]
+
 * added upload action for PloneFlashUpload to Page.
   [05.10.2010, mathias.leimgruber]
 

@@ -44,8 +44,8 @@ class BlockView(BrowserView):
         self.portal_state = getMultiAdapter((self.context, self.request),
                                             name=u'plone_portal_state')
         self.sl_portal_url = self.portal_state.portal_url()
-        blockconf = IBlockConfig(self.context)
-        self.image_layout = blockconf.image_layout
+        self.blockconf = IBlockConfig(self.context)
+        self.image_layout = self.blockconf.image_layout
 
     def getCSSClass(self):
         layout = self.image_layout
@@ -104,8 +104,8 @@ class BlockView(BrowserView):
         return "width: %spx" % img_attrs['width']
 
     def getBlockHeight(self):
-        blockconf = IBlockConfig(self.context)
-        return blockconf.block_height or ''
+        height = self.blockconf.block_height
+        return  height and '%spx' % height or ''
 
     @property
     def wtool(self):
