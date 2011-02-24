@@ -1,22 +1,25 @@
 from AccessControl import ClassSecurityInfo
-from Products.Archetypes.atapi import *
-from simplelayout.types.common.config import *
-from simplelayout_schemas import imageSchema, finalize_simplelayout_schema
+from simplelayout.types.common.config import PROJECTNAME
+from simplelayout_schemas import finalize_simplelayout_schema
 from Products.ATContentTypes.lib.constraintypes import ConstrainTypesMixinSchema
 from Products.ATContentTypes.content.folder import ATFolder
-from Products.CMFCore.permissions import View
 from zope.interface import implements
 from simplelayout.types.common.interfaces import IPage
 from simplelayout.base.interfaces import ISimpleLayoutCapable
 from Products.CMFCore.utils import getToolByName
 from Products.CMFCore.permissions import ModifyPortalContent
 
+try:
+    from Products.LinguaPlone import public as atapi
+except ImportError:
+    # No multilingual support
+    from Products.Archetypes import atapi
 
 from Products.ATReferenceBrowserWidget.ATReferenceBrowserWidget import ReferenceBrowserWidget
 
-schema = Schema((
+schema = atapi.Schema((
         
-        ReferenceField('relatedItems',
+        atapi.ReferenceField('relatedItems',
            relationship = 'relatesTo',
            schemata='settings',
            multiValued = True,
@@ -60,5 +63,5 @@ class Page(ATFolder):
         catalog = getToolByName(self, "portal_catalog")
         return catalog.uniqueValuesFor("page_types")
 
-registerType(Page, PROJECTNAME)
+atapi.registerType(Page, PROJECTNAME)
 

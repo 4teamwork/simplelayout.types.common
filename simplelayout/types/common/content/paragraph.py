@@ -1,41 +1,47 @@
 from zope.interface import implements
 from Products.CMFCore.utils import getToolByName
 from AccessControl import ClassSecurityInfo
-from Products.Archetypes.atapi import *
-from simplelayout.types.common.config import *
+from simplelayout.types.common.config import PROJECTNAME
 from simplelayout_schemas import textSchema, imageSchema, finalize_simplelayout_schema
 from Products.ATContentTypes.content.document import ATDocumentBase
 from Products.ATContentTypes.content.schemata import ATContentTypeSchema
-from Acquisition import aq_inner
 from Products.CMFCore.permissions import View
 from simplelayout.types.common.interfaces import IParagraph
 from simplelayout.base.interfaces import ISimpleLayoutBlock
 from mixinklasses import ImageScalesMixin
+try:
+    from Products.LinguaPlone import public as atapi
+except ImportError:
+    # No multilingual support
+    from Products.Archetypes import atapi
 
-schema = Schema((
-     BooleanField('showTitle',
+
+
+
+schema = atapi.Schema((
+     atapi.BooleanField('showTitle',
                 schemata='default',
                 default=0,
-                widget=BooleanWidget(description = "Show title",
+                widget=atapi.BooleanWidget(description = "Show title",
                                              description_msgid = "simplelayout_help_showtitle",
                                              label = "Show Title",
                                              label_msgid = "simplelayout_label_showtitle",
                                              i18n_domain = "simplelayout",
                                              )),   
-     BooleanField('imageClickable',
+     atapi.BooleanField('imageClickable',
                 schemata='image',
                 default=0,
-                widget=BooleanWidget(description = "imageClickable",
+                widget=atapi.BooleanWidget(description = "imageClickable",
                                              description_msgid = "simplelayout_help_imageClickable",
                                              label = "Image Clickable",
                                              label_msgid = "simplelayout_label_imageClickable",
                                              i18n_domain = "simplelayout",
                                              )),   
                                              
-     BooleanField('teaserblock',
+     atapi.BooleanField('teaserblock',
                 schemata='settings',
                 default=0,
-                widget=BooleanWidget(description = "teaser blocks shows their related items (ex. for frontpage)",
+                widget=atapi.BooleanWidget(description = "teaser blocks shows their related items (ex. for frontpage)",
                                              description_msgid = "simplelayout_help_teaserblock",
                                              label = "Tick if this block is a teaser",
                                              label_msgid = "simplelayout_label_teaserblock",
@@ -64,7 +70,7 @@ class Paragraph(ImageScalesMixin,ATDocumentBase):
     """
     """
     security = ClassSecurityInfo()
-    implements(ISimpleLayoutBlock)
+    implements(ISimpleLayoutBlock, IParagraph)
     schema = paragraph_schema
 
     # Methods
@@ -131,5 +137,5 @@ class Paragraph(ImageScalesMixin,ATDocumentBase):
 
 
 
-registerType(Paragraph, PROJECTNAME)
+atapi.registerType(Paragraph, PROJECTNAME)
 

@@ -1,6 +1,12 @@
 Changelog
 =========
 
+2.5.3
+-----
+* LinguaPlone integration. 
+  [24.02.2011, mathias.leimgruber]
+
+
 2.5.2
 ----------------
 * use orderable schema from schemaextender [mathias.leimgruber]
