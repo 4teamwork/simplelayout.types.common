@@ -1,6 +1,10 @@
 Changelog
 =========
 
+
+2.5.4
+-----
+
 2.5.3
 -----
 * LinguaPlone integration. 
