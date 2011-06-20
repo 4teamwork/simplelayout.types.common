@@ -76,3 +76,6 @@ msgstr "Bild"
 
 msgid "simplelayout_help_image"
 msgstr "Wählen Sie ein Bild aus"
+
+msgid "Further informations"
+msgstr "Weiterführende Informationen"

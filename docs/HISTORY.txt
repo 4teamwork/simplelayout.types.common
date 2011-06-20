@@ -4,6 +4,9 @@ Changelog
 
 3.0
 --------------
+* Do not use document_relatedItems macro. 
+  [20.06.2011, mathias.leimgruber]
+
 * fixed getBlockHeight function
   [27.12.2010, mathias.leimgruber]
 

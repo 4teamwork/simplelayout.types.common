@@ -18,7 +18,3 @@ msgstr ""
 msgid "label_schema_image"
 msgstr "Bild"
 
-
-
-
-

@@ -1,4 +1,4 @@
-<div class="#" id="#"
+<div class="#" id="#" i18n:domain="simplelayout"
                 tal:define="slclass view/getCSSClass;
                 text here/getBlockText|here/getText|nothing;
                 title here/Title | here/pretty_title_or_id;
@@ -27,11 +27,24 @@
 
 
     <tal:ifteaser tal:condition="here/getTeaserblock | nothing" 
-                  tal:define="wtool view/wtool;
-                              isViewTemplate python: True;
-                              plone_view here/@@plone;
-                              normalizeString nocall: context/@@plone/normalizeString">
-        <div metal:use-macro="here/document_relateditems/macros/relatedItems"></div>
+                  tal:define="related view/relates_items">
+        <div class="teaserItems">
+            <b class="teaserHeader" i18n:translate="">Further informations</b>
+            <ul id="relatedItemBox">
+                <tal:related repeat="item related">
+                    <li tal:define="
+                            desc                item/Description;
+                            item_url            item/getURL|item/absolute_url">
+                            <a href="" class=""
+                               tal:attributes="href  item_url;
+                                               title desc;"
+                               tal:content="item/pretty_title_or_id">
+                                Related Item
+                            </a>
+                    </li>
+                </tal:related>
+            </ul>
+        </div>
     </tal:ifteaser>
     
 </div>

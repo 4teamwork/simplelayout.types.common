@@ -1,5 +1,6 @@
 from Acquisition import aq_inner, aq_parent
 from Products.CMFCore.utils import getToolByName
+from Products.CMFPlone.utils import base_hasattr
 from Products.Five.browser import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from simplelayout.base.interfaces import IBlockConfig, IScaleImage
@@ -13,8 +14,10 @@ from zope.component import queryMultiAdapter
 #dummy for refactoring
 _ = lambda x: x
 
+
 class paragraphView(BrowserView):
     template = ViewPageTemplateFile('paragraph_version_view.pt')
+
     def __call__(self):
         context = aq_inner(self.context).aq_explicit
         #auto redirect to the anchor
@@ -25,10 +28,11 @@ class paragraphView(BrowserView):
 
     @property
     def macros(self):
-        return {'main':self.template.macros['main']}
+        return {'main': self.template.macros['main']}
 
 
 class FileView(BrowserView):
+
     def __init__(self, context, request):
         super(FileView, self).__init__(context, request)
         self.portal_state = getMultiAdapter((self.context, self.request),
@@ -56,7 +60,7 @@ class BlockView(BrowserView):
 
     def checkForImage(self):
         #check for a 'image' field in schemata
-        if getattr(self.context.aq_explicit,'getImage',False):
+        if getattr(self.context.aq_explicit, 'getImage', False):
             if self.context.getImage():
                 return True
         return False
@@ -89,14 +93,14 @@ class BlockView(BrowserView):
                 'image',
                 width=img_attrs['width'],
                 height=img_attrs['height']).tag(title=title, alt=alt)
-        
+
         return ''
 
     def image_wrapper_style(self):
         """ sets width of the div wrapping the image, so the
         caption linebreaks
         """
-        
+
         image_util = getUtility(
             IScaleImage,
             name='simplelayout.image.scaler')
@@ -110,6 +114,29 @@ class BlockView(BrowserView):
     @property
     def wtool(self):
         return getToolByName(self.context, 'portal_workflow')
+
+    def relates_items(self):
+        """Shows related items if it behaves like a teaser-block"""
+
+        context = aq_inner(self.context)
+        res = ()
+        if base_hasattr(context, 'getRawRelatedItems'):
+            catalog = getToolByName(context, 'portal_catalog')
+            related = context.getRawRelatedItems()
+            if not related:
+                return ()
+            brains = catalog(UID=related)
+            if brains:
+                # build a position dict by iterating over the items once
+                positions = dict([(v, i) for (i, v) in enumerate(related)])
+                # We need to keep the ordering intact
+                res = list(brains)
+
+                def _key(brain):
+                    return positions.get(brain.UID, -1)
+
+                res.sort(key=_key)
+        return res
 
 
 class ImageView(BrowserView):
@@ -125,7 +152,6 @@ class ImageView(BrowserView):
             return 'sl-img-no-image'
         cssclass = 'sl-img-'+layout
         return cssclass
-
 
     def getImageTag(self):
         """Use plone.app.imaging to scale and display the right image
@@ -144,7 +170,6 @@ class ImageView(BrowserView):
             'image',
             width=img_attrs['width'],
             height=img_attrs['height']).tag(title=title, alt=alt)
-
 
     def showTitleOfImage(self):
         show_image_title = hasattr(self.context, 'showImageTitle') and \
