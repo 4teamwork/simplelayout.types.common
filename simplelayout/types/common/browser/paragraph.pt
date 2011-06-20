@@ -27,7 +27,7 @@
 
 
     <tal:ifteaser tal:condition="here/getTeaserblock | nothing" 
-                  tal:define="related view/relates_items">
+                  tal:define="related view/related_items">
         <div class="teaserItems">
             <b class="teaserHeader" i18n:translate="">Further informations</b>
             <ul id="relatedItemBox">

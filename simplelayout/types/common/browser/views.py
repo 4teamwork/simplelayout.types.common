@@ -115,7 +115,7 @@ class BlockView(BrowserView):
     def wtool(self):
         return getToolByName(self.context, 'portal_workflow')
 
-    def relates_items(self):
+    def related_items(self):
         """Shows related items if it behaves like a teaser-block"""
 
         context = aq_inner(self.context)
