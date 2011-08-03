@@ -5,6 +5,10 @@ Changelog
 3.0
 --------------
 
+* Plone 4.1 compatibility: do not render scales when no image
+  should be displayed anyway.
+  [03.08.2011, jbaumann]
+
 * Do not use document_relatedItems macro.
   [20.06.2011, mathias.leimgruber]
 

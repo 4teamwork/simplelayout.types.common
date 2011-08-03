@@ -89,6 +89,13 @@ class BlockView(BrowserView):
         scales = queryMultiAdapter((self.context, self.request), name="images")
 
         if self.context.getField('image'):
+            if img_attrs['width'] == 0 and img_attrs['height'] == 0:
+                # either there is no image or we use a layout such as
+                # "no-image" which does not show the image - we do not
+                # need to create a scale in this case nor to return a
+                # <img> HTML tag.
+                return ''
+
             return scales.scale(
                 'image',
                 width=img_attrs['width'],
