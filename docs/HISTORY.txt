@@ -4,7 +4,8 @@ Changelog
 
 3.0
 --------------
-* Do not use document_relatedItems macro. 
+
+* Do not use document_relatedItems macro.
   [20.06.2011, mathias.leimgruber]
 
 * fixed getBlockHeight function
@@ -13,7 +14,7 @@ Changelog
 * added upload action for PloneFlashUpload to Page.
   [05.10.2010, mathias.leimgruber]
 
-* implemented image scaling by plone.app.imaging. 
+* implemented image scaling by plone.app.imaging.
   [30.09.2010, mathias.leimgruber]
 
 * Added plone.app.blog support
