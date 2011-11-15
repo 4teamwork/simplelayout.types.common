@@ -12,7 +12,7 @@ from Products.CMFCore.utils import getToolByName
 from Products.CMFCore.permissions import ModifyPortalContent
 
 
-from Products.ATReferenceBrowserWidget.ATReferenceBrowserWidget import ReferenceBrowserWidget
+from archetypes.referencebrowserwidget.widget import ReferenceBrowserWidget
 
 schema = Schema((
         

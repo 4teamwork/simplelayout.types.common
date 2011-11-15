@@ -3,7 +3,10 @@ Changelog
 
 
 3.0
---------------
+---
+
+* Applied patch from Carsten Rebbien. Changes for plone 4.1
+  [15.11.2011, mathias.leimgruber]
 
 * Plone 4.1 compatibility: do not render scales when no image
   should be displayed anyway.
@@ -42,17 +45,17 @@ Changelog
   [12.07.2010, mathias.leimgruber]
 
 2.5.2
-----------------
+-----
 * use orderable schema from schemaextender [mathias.leimgruber]
 
 
 2.5.1
-----------------
+-----
 * removed AddRemoveWidget dependency [mathias.leimgruber]
 
 
 2.5
-----------------
+---
 
 * removed unused checkforeditmode method  [mathias.leimgruber]
 * removed simplelayout-edit-button and replace it by the plones
@@ -61,19 +64,19 @@ Changelog
 
 
 2.4
-----------------
+---
 
 * fixed minor bug in page.py [victor.baumann]
 
 
 2.3
-----------------
+---
 
 * fix permissions for delete actions in blockable types [mathias.leimgruber]
 
 
 2.2
-----------------
+---
 
 * add mixinklasse module
 * use simplelayout sizes for atct image scales
@@ -81,7 +84,7 @@ Changelog
 
 
 2.1
-----------------
+---
 
 * don't show regular Document(Page) [mathias.leimgruber]
 * remove leadimage from Page schemata [mathias.leimgruber]
@@ -89,12 +92,12 @@ Changelog
 
 
 2.0
-----------------
+---
 * Bug Fixes
 
 
 1.0
-----------------
+---
 
 * Initial release
 * Base simplelayout types:

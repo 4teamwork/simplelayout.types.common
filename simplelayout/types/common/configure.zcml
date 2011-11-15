@@ -21,33 +21,29 @@
     <include package=".extender" />
 
 
-    <five:implements
-        class="simplelayout.types.common.content.paragraph.Paragraph"
-        interface="simplelayout.types.common.interfaces.IParagraph"
-        />
-
+    <class class="simplelayout.types.common.content.paragraph.Paragraph">
+        <implements interface="simplelayout.types.common.interfaces.IParagraph" />
+    </class> 
 
 
     <!-- make some plone default content types blockable -->
-    <five:implements
-        class="Products.ATContentTypes.content.link.ATLink"
-        interface="simplelayout.base.interfaces.ISimpleLayoutBlock"
-        />
+    <class class="Products.ATContentTypes.content.link.ATLink">
+        <implements interface="simplelayout.base.interfaces.ISimpleLayoutBlock" />
+    </class> 
 
-    <five:implements
-        class="Products.ATContentTypes.content.file.ATFile"
-        interface="simplelayout.base.interfaces.ISimpleLayoutBlock"
-        />
+    <class class="Products.ATContentTypes.content.file.ATFile">
+        <implements interface="simplelayout.base.interfaces.ISimpleLayoutBlock" />
+    </class> 
 
-    <five:implements
-        class="Products.ATContentTypes.content.image.ATImage"
-        interface="simplelayout.base.interfaces.ISimpleLayoutBlock"
-        />
+    <class class="Products.ATContentTypes.content.image.ATImage">
+        <implements interface="simplelayout.base.interfaces.ISimpleLayoutBlock" />
+    </class> 
 
-    <five:implements
-        zcml:condition="installed plone.app.blob"
-        class="plone.app.blob.content.ATBlob"
-        interface="simplelayout.base.interfaces.ISimpleLayoutBlock"
+    <class class="plone.app.blob.content.ATBlob">
+        <implements 
+            zcml:condition="installed plone.app.blob"
+            interface="simplelayout.base.interfaces.ISimpleLayoutBlock" 
         />
+    </class> 
 
 </configure>
