@@ -43,6 +43,13 @@
 		class=".views.BlockView"
     	permission="zope2.View" />
 
+    <browser:page
+    	for="simplelayout.base.interfaces.ISimpleLayoutBlock"
+    	name="download_image"
+		class=".views.DownloadImage"
+    	permission="zope2.View" />
+
+
 
     <browser:resourceDirectory
         name="simplelayout.types.common-resources"

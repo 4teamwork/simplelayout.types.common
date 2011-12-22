@@ -14,6 +14,14 @@ from zope.component import queryMultiAdapter
 #dummy for refactoring
 _ = lambda x: x
 
+class DownloadImage(BrowserView):
+
+    def __call__(self):
+        if 'image' in self.context.Schema():
+            image = self.context.getWrappedField('image')
+            return image.download(self.context)
+        return None
+
 
 class paragraphView(BrowserView):
     template = ViewPageTemplateFile('paragraph_version_view.pt')
