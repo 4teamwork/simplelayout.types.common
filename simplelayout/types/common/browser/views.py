@@ -181,10 +181,20 @@ class ImageView(BrowserView):
 
         img_attrs = image_util.get_image_attributes(self.context)
         scales = queryMultiAdapter((self.context, self.request), name="images")
-        return scales.scale(
-            'image',
-            width=img_attrs['width'],
-            height=img_attrs['height']).tag(title=title, alt=alt)
+        if self.context.getField('image'):
+            if img_attrs['width'] == 0 and img_attrs['height'] == 0:
+                # either there is no image or we use a layout such as
+                # "no-image" which does not show the image - we do not
+                # need to create a scale in this case nor to return a
+                # <img> HTML tag.
+                return ''
+
+            return scales.scale(
+                'image',
+                width=img_attrs['width'],
+                height=img_attrs['height']).tag(title=title, alt=alt)
+
+        return ''
 
     def showTitleOfImage(self):
         show_image_title = hasattr(self.context, 'showImageTitle') and \
