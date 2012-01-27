@@ -54,6 +54,7 @@ finalize_simplelayout_schema(paragraph_schema)
 paragraph_schema['description'].widget.visible = {'edit': 0, 'view': 0}
 paragraph_schema['title'].searchable = 0
 paragraph_schema.moveField('teaserblock',before="relatedItems")
+paragraph_schema['text'].widget.filter_buttons = ('image', )
 
 ##code-section after-schema #fill in your manual code here
 ##/code-section after-schema
