@@ -5,6 +5,9 @@ Changelog
 3.0
 ---
 
+- Activate versioning and diff for paragraphs.
+  [jone]
+
 * Add view download_image for jquery.lightbox in simplelayout.ui.base
   [22.12.2011, eschmutz]
 
@@ -108,4 +111,3 @@ Changelog
     - Paragraph (default block)
 * makes images, link and file blockable
 * includes some configs made by GS
-
