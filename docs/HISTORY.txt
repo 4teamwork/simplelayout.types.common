@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-3.0b2 (unreleased)
+3.0b2 (2012-03-05)
 ------------------
 
 - Fixed changelog.
