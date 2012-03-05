@@ -107,7 +107,7 @@ Changelog
 
 * Initial release
 * Base simplelayout types:
-    - Page (container for blocks)
+3.0b1 (2012-03-05)
     - Paragraph (default block)
 * makes images, link and file blockable
 * includes some configs made by GS
