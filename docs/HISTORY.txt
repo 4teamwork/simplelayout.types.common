@@ -5,7 +5,8 @@ Changelog
 3.0b3 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Use getIcon to get the files icon.
+  [Julian Infanger]
 
 
 3.0b2 (2012-03-05)

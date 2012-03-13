@@ -5,7 +5,7 @@
 	<tal:define define="accessor nocall:here/getFile;
 						field python:here.getField('file');
 						fieldName string:file;
-						icon python:accessor().getBestIcon();
+						icon here/getIcon;
 						size python:accessor().get_size()">
 
          <a class="fileTitle" href="" tal:attributes="href string:${here/absolute_url}/at_download/$fieldName;
