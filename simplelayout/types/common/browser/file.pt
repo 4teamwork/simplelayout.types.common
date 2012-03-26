@@ -13,7 +13,6 @@
             <tal:filename tal:replace="here/Title | accessor/filename | fieldName"/>
           <span class="discreet">
               &mdash;
-              <span tal:replace="python:view.parent.lookupMime(field.getContentType(here))">ContentType</span>,
               <tal:size content="python:'%sKb' % (size / 1024)">0Kb</tal:size>
           </span>
          </a>

@@ -5,6 +5,9 @@ Changelog
 3.0b3 (unreleased)
 ------------------
 
+- Removed mimetype text, the mimetype is indicated by the icon.
+  [mathias.leimgruber]
+
 - Use getIcon to get the files icon.
   [Julian Infanger]
 
