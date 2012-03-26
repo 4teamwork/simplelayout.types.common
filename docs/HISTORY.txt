@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-3.0b3 (unreleased)
+3.0b3 (2012-03-26)
 ------------------
 
 - Removed mimetype text, the mimetype is indicated by the icon.
