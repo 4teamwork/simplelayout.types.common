@@ -6,7 +6,7 @@
                 tal:attributes="id here/id;
                                 class string:simplelayout-block-wrapper ${slclass}${fullblock};
                                 style string:height:${view/getBlockHeight}">
-    <h3 tal:content="here/Title" tal:condition="here/getShowTitle|python:True" />
+    <h2 tal:content="here/Title" tal:condition="here/getShowTitle|python:True" />
     <a tal:attributes="name here/id" ></a>
         <div class="sl-img-wrapper" tal:condition="view/checkForImage"
              tal:attributes="style view/image_wrapper_style">
@@ -18,7 +18,7 @@
                                         tal:omit-tag="not: here/getImageClickable|nothing"
                     >
                         <img tal:replace="structure view/getImageTag" />
-                        <p tal:define="image_desc context/getImageCaption | context/Description" 
+                        <p tal:define="image_desc context/getImageCaption | context/Description"
                            tal:condition="image_desc"
                            tal:content="context/getImageCaption">Caption</p>
                     </a>
@@ -26,7 +26,7 @@
     <div tal:condition="text" class="sl-text-wrapper" tal:content="structure text"></div>
 
 
-    <tal:ifteaser tal:condition="here/getTeaserblock | nothing" 
+    <tal:ifteaser tal:condition="here/getTeaserblock | nothing"
                   tal:define="related view/related_items">
         <div class="teaserItems">
             <b class="teaserHeader" i18n:translate="">Further informations</b>
@@ -46,6 +46,6 @@
             </ul>
         </div>
     </tal:ifteaser>
-    
+
 </div>
 <span class="visualClear">&nbsp;</span>
