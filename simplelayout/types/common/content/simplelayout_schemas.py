@@ -19,17 +19,17 @@ imageSchema = atapi.Schema((
             show_content_type = False,
             i18n_domain='simplelayout')
         ),
-        
+
     atapi.StringField('imageCaption',
         required = False,
         searchable = True,
-        schemata='image',        
+        schemata='image',
         widget = atapi.StringWidget(
             description = '',
             label = _(u'label_image_caption', default=u'Image Caption'),
             size = 40)
         ),
-        
+
     atapi.StringField('imageAltText',
             schemata='image',
             required=False,
@@ -80,11 +80,11 @@ def finalize_simplelayout_schema(schema, folderish=False, moveDiscussion=True):
     if schema.has_key('effectiveDate'):
         schema.changeSchemataForField('effectiveDate', 'default')
     if schema.has_key('expirationDate'):
-        schema.changeSchemataForField('expirationDate', 'default')    
+        schema.changeSchemataForField('expirationDate', 'default')
     if schema.has_key('creation_date'):
-        schema.changeSchemataForField('creation_date', 'settings')    
+        schema.changeSchemataForField('creation_date', 'settings')
     if schema.has_key('modification_date'):
-        schema.changeSchemataForField('modification_date', 'settings')    
+        schema.changeSchemataForField('modification_date', 'settings')
 
     # Ownership
     if schema.has_key('creators'):
@@ -109,14 +109,14 @@ def finalize_simplelayout_schema(schema, folderish=False, moveDiscussion=True):
         schema['text'].validators = ValidationChain('Validator_text',validators=('handleEmptyTextField',))
 
     marshall_register(schema)
-    
-    
+
+
     #set permissions for settings schemata
 
     settings_fields = [schema[key] for key in schema.keys() if schema[key].schemata == 'settings']
     for field in settings_fields:
         field.write_permission = ManagePortal
 
-    
-    
+
+
     return schema
