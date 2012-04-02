@@ -4,10 +4,11 @@ from Products.ATContentTypes import ATCTMessageFactory as _
 from Products.CMFCore.permissions import ManagePortal
 from Products.validation import ValidationChain
 from Products.ATContentTypes.content.schemata import finalizeATCTSchema, marshall_register
+from plone.app.blob.field import ImageField
 
 
 imageSchema = atapi.Schema((
-    atapi.ImageField('image',
+    ImageField('image',
         required = False,
         original_size = ORIGINAL_SIZE,
         schemata='image',
