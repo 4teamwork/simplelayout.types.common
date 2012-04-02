@@ -5,6 +5,9 @@ Changelog
 3.0b4 (unreleased)
 ------------------
 
+- Use blobstorage for image field.
+  [eschmutz]
+
 - Use h2 instead of h3 to display paragraphs title.
   [Julian Infanger]
 
