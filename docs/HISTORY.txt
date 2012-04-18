@@ -5,7 +5,8 @@ Changelog
 3.0b5 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Do not show "opens in new window" in tooltip.
+  [Julian Infanger]
 
 
 3.0b4 (2012-04-02)

@@ -6,7 +6,6 @@ from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from simplelayout.base.interfaces import IBlockConfig, IScaleImage
 from zope.component import getMultiAdapter
 from zope.component import getUtility
-from zope.i18n import translate
 from zope.component import queryMultiAdapter
 
 
@@ -78,14 +77,6 @@ class BlockView(BrowserView):
                       self.context.getCharset())
         title = unicode(self.context.getImageCaption(),
                         self.context.getCharset())
-
-        is_clickable = hasattr(self.context, 'getImageClickable') and \
-            self.context.getImageClickable() or False
-        post_alt = translate(_(u'opens in new window'), context=self.request)
-        if (is_clickable and len(alt)):
-            alt = "%s (%s)" % (alt, post_alt)
-        elif(is_clickable and not len(alt)):
-            alt = "%s"%post_alt
 
         if not title:
             title = alt
