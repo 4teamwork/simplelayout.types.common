@@ -13,8 +13,8 @@
 						<!--
                         <span tal:condition="context/Description" tal:content="context/Description">Description</span>
                         -->
-                        <p tal:content="context/Title" tal:condition="view/showTitleOfImage"></p>
 					</a>
+                    <p tal:content="context/Title" tal:condition="view/showTitleOfImage"></p>
 	</div>
 	
 </div>

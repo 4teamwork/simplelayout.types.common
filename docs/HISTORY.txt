@@ -5,6 +5,9 @@ Changelog
 3.0b5 (unreleased)
 ------------------
 
+- Image title should not be a link, if image is clickable.
+  [Julian Infanger]
+
 - Do not show "opens in new window" in tooltip.
   [Julian Infanger]
 
