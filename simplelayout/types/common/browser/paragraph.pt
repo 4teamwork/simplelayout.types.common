@@ -18,10 +18,10 @@
                                         tal:omit-tag="not: here/getImageClickable|nothing"
                     >
                         <img tal:replace="structure view/getImageTag" />
-                        <p tal:define="image_desc context/getImageCaption | context/Description"
-                           tal:condition="image_desc"
-                           tal:content="context/getImageCaption">Caption</p>
                     </a>
+                    <p tal:define="image_desc context/getImageCaption | context/Description"
+                       tal:condition="image_desc"
+                       tal:content="context/getImageCaption">Caption</p>
     </div>
     <div tal:condition="text" class="sl-text-wrapper" tal:content="structure text"></div>
 
