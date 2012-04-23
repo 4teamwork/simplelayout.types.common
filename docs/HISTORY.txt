@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-3.0b5 (unreleased)
+3.0b5 (2012-04-23)
 ------------------
 
 - Image title should not be a link, if image is clickable.
