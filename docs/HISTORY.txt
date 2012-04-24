@@ -5,7 +5,8 @@ Changelog
 3.0b6 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Set title attribute for link if a image is clickable.
+  [Julian Infanger]
 
 
 3.0b5 (2012-04-23)
