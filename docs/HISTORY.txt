@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-3.0b6 (unreleased)
+3.0b6 (2012-04-25)
 ------------------
 
 - Set title attribute for link if a image is clickable.
