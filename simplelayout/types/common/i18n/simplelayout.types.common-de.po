@@ -63,7 +63,7 @@ msgid "simplelayout_label_imageClickable"
 msgstr "Bild anklickbar"
 
 msgid "simplelayout_help_imageClickable"
-msgstr "Falls collective.greybox installiert ist, wird das Bild in der Greybox dargestellt."
+msgstr "Wird das Bild angeklickt, wird es in Grossansicht angezeigt."
 
 msgid "simplelayout_label_teaserblock"
 msgstr "Markieren, wenn der Block ein 'teaser' ist."

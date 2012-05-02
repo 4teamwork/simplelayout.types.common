@@ -5,7 +5,8 @@ Changelog
 3.0b7 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Replaced useless translation.
+  [Julian Infanger]
 
 
 3.0b6 (2012-04-25)
