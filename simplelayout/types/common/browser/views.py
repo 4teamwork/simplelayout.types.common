@@ -1,4 +1,6 @@
+from AccessControl import getSecurityManager
 from Acquisition import aq_inner, aq_parent
+from Products.CMFCore import permissions
 from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone.utils import base_hasattr
 from Products.Five.browser import BrowserView
@@ -7,8 +9,6 @@ from simplelayout.base.interfaces import IBlockConfig, IScaleImage
 from zope.component import getMultiAdapter
 from zope.component import getUtility
 from zope.component import queryMultiAdapter
-
-
 
 #dummy for refactoring
 _ = lambda x: x
@@ -46,6 +46,13 @@ class FileView(BrowserView):
                                             name=u'plone_portal_state')
         self.sl_portal_url = self.portal_state.portal_url()
         self.parent = aq_parent(aq_inner(self.context))
+
+    def get_link(self):
+        sec_manager = getSecurityManager()
+        if sec_manager.checkPermission(permissions.ModifyPortalContent, self.context):
+            return self.context.absolute_url()+'/view'
+        else:
+            return self.context.absolute_url()+'/at_download/file'
 
 
 class BlockView(BrowserView):

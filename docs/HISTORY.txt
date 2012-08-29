@@ -5,7 +5,8 @@ Changelog
 3.0b8 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Show link to default File view if the user has ModifyPortalContent instead of Downloading the File directly.
+  [tschanzt]
 
 
 3.0b7 (2012-05-09)

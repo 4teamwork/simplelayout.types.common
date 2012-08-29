@@ -8,7 +8,7 @@
 						icon here/getIcon;
 						size python:accessor().get_size()">
 
-         <a class="fileTitle" href="" tal:attributes="href string:${here/absolute_url}/at_download/$fieldName;
+         <a class="fileTitle" href="" tal:attributes="href string:${view/get_link};
                                     style string:background:transparent url(${view/sl_portal_url}/${icon}) no-repeat top left">
             <tal:filename tal:replace="here/Title | accessor/filename | fieldName"/>
           <span class="discreet">
