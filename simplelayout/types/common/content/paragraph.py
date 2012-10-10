@@ -10,6 +10,13 @@ from Products.CMFCore.permissions import View
 from simplelayout.types.common.interfaces import IParagraph
 from simplelayout.base.interfaces import ISimpleLayoutBlock
 
+from Products.ATContentTypes.config import HAS_LINGUA_PLONE
+if HAS_LINGUA_PLONE:
+    from Products.LinguaPlone.public import registerType
+else:
+    from Products.Archetypes.atapi import registerType
+
+
 schema = atapi.Schema((
      atapi.BooleanField('showTitle',
                 schemata='default',
@@ -105,4 +112,4 @@ class Paragraph(ATDocumentBase):
             kwargs['alt'] = self.getImageAltText()
         return self.getField('image').tag(self, **kwargs)
 
-atapi.registerType(Paragraph, config.PROJECTNAME)
+registerType(Paragraph, config.PROJECTNAME)

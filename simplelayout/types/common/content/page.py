@@ -11,8 +11,14 @@ from simplelayout.base.interfaces import ISimpleLayoutCapable
 from Products.CMFCore.utils import getToolByName
 from Products.CMFCore.permissions import ModifyPortalContent
 
-
 from archetypes.referencebrowserwidget.widget import ReferenceBrowserWidget
+
+from Products.ATContentTypes.config import HAS_LINGUA_PLONE
+if HAS_LINGUA_PLONE:
+    from Products.LinguaPlone.public import registerType
+else:
+    from Products.Archetypes.atapi import registerType
+
 
 schema = Schema((
         
