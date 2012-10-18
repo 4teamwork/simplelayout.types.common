@@ -1,10 +1,16 @@
-from Products.Archetypes import atapi
 from simplelayout.types.common.config import ORIGINAL_SIZE
 from Products.ATContentTypes import ATCTMessageFactory as _
 from Products.CMFCore.permissions import ManagePortal
 from Products.validation import ValidationChain
 from Products.ATContentTypes.content.schemata import finalizeATCTSchema, marshall_register
 from plone.app.blob.field import ImageField
+
+
+from Products.ATContentTypes.config import HAS_LINGUA_PLONE
+if HAS_LINGUA_PLONE:
+    from Products.LinguaPlone import public as atapi
+else:
+    from Products.Archetypes import atapi
 
 
 imageSchema = atapi.Schema((
