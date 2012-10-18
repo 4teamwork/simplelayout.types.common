@@ -1,20 +1,20 @@
-from zope.interface import implements
-from Products.CMFCore.utils import getToolByName
 from AccessControl import ClassSecurityInfo
-from Products.Archetypes import atapi
-from simplelayout.types.common import config
-from simplelayout_schemas import textSchema, imageSchema, finalize_simplelayout_schema
 from Products.ATContentTypes.content.document import ATDocumentBase
 from Products.ATContentTypes.content.schemata import ATContentTypeSchema
 from Products.CMFCore.permissions import View
-from simplelayout.types.common.interfaces import IParagraph
+from Products.CMFCore.utils import getToolByName
 from simplelayout.base.interfaces import ISimpleLayoutBlock
+from simplelayout.types.common import config
+from simplelayout.types.common.interfaces import IParagraph
+from simplelayout_schemas import textSchema, imageSchema, finalize_simplelayout_schema
+from zope.interface import implements
+
 
 from Products.ATContentTypes.config import HAS_LINGUA_PLONE
 if HAS_LINGUA_PLONE:
-    from Products.LinguaPlone.public import registerType
+    from Products.LinguaPlone import public as atapi
 else:
-    from Products.Archetypes.atapi import registerType
+    from Products.Archetypes import atapi
 
 
 schema = atapi.Schema((
@@ -112,4 +112,4 @@ class Paragraph(ATDocumentBase):
             kwargs['alt'] = self.getImageAltText()
         return self.getField('image').tag(self, **kwargs)
 
-registerType(Paragraph, config.PROJECTNAME)
+atapi.registerType(Paragraph, config.PROJECTNAME)
