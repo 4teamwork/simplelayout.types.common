@@ -5,7 +5,8 @@ Changelog
 3.0b8 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Import registerType from LinguaPlone if its installed.
+  [Julian Infanger]
 
 
 3.0b7 (2012-05-09)

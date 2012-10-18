@@ -1,22 +1,26 @@
 from AccessControl import ClassSecurityInfo
-from Products.Archetypes.atapi import *
-from simplelayout.types.common.config import *
-from simplelayout_schemas import imageSchema, finalize_simplelayout_schema
-from Products.ATContentTypes.lib.constraintypes import ConstrainTypesMixinSchema
 from Products.ATContentTypes.content.folder import ATFolder
-from Products.CMFCore.permissions import View
-from zope.interface import implements
-from simplelayout.types.common.interfaces import IPage
-from simplelayout.base.interfaces import ISimpleLayoutCapable
-from Products.CMFCore.utils import getToolByName
+from Products.ATContentTypes.lib.constraintypes import ConstrainTypesMixinSchema
 from Products.CMFCore.permissions import ModifyPortalContent
-
-
+from Products.CMFCore.utils import getToolByName
+from simplelayout.base.interfaces import ISimpleLayoutCapable
+from simplelayout.types.common.config import PROJECTNAME
+from simplelayout.types.common.interfaces import IPage
+from simplelayout_schemas import finalize_simplelayout_schema
+from zope.interface import implements
 from archetypes.referencebrowserwidget.widget import ReferenceBrowserWidget
 
-schema = Schema((
-        
-        ReferenceField('relatedItems',
+from Products.ATContentTypes.config import HAS_LINGUA_PLONE
+
+if HAS_LINGUA_PLONE:
+    from Products.LinguaPlone import public as atapi
+else:
+    from Products.Archetypes import atapi
+
+
+
+schema = atapi.Schema((
+        atapi.ReferenceField('relatedItems',
            relationship = 'relatesTo',
            schemata='settings',
            multiValued = True,
@@ -46,19 +50,16 @@ page_schema = ATFolder.schema.copy() + ConstrainTypesMixinSchema.copy() \
 finalize_simplelayout_schema(page_schema, folderish=True)
 
 
-
-
 class Page(ATFolder):
     """
     """
     implements(IPage, ISimpleLayoutCapable)
-    security = ClassSecurityInfo()    
+    security = ClassSecurityInfo()
 
     schema = page_schema
-    
+
     def getPageTypes(self):
         catalog = getToolByName(self, "portal_catalog")
         return catalog.uniqueValuesFor("page_types")
 
-registerType(Page, PROJECTNAME)
-
+atapi.registerType(Page, PROJECTNAME)
