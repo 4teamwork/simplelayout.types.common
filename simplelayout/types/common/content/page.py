@@ -21,7 +21,7 @@ else:
 
 
 schema = Schema((
-        
+
         ReferenceField('relatedItems',
            relationship = 'relatesTo',
            schemata='settings',
@@ -58,13 +58,12 @@ class Page(ATFolder):
     """
     """
     implements(IPage, ISimpleLayoutCapable)
-    security = ClassSecurityInfo()    
+    security = ClassSecurityInfo()
 
     schema = page_schema
-    
+
     def getPageTypes(self):
         catalog = getToolByName(self, "portal_catalog")
         return catalog.uniqueValuesFor("page_types")
 
 registerType(Page, PROJECTNAME)
-
