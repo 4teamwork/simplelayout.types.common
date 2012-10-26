@@ -5,6 +5,9 @@ Changelog
 3.0b8 (unreleased)
 ------------------
 
+- Move package to github.
+  [jone]
+
 - Import registerType from LinguaPlone if its installed.
   [Julian Infanger]
 
