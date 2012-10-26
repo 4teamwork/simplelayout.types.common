@@ -5,7 +5,7 @@ version = '3.0b8.dev0'
 
 setup(name='simplelayout.types.common',
       version=version,
-      description="simplelayout common types",
+      description="Simplelayout component providing content types.",
       long_description=open("README.rst").read() + "\n" + \
           open(os.path.join("docs", "HISTORY.txt")).read(),
 
