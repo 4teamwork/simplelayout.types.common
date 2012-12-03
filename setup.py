@@ -30,6 +30,7 @@ setup(name='simplelayout.types.common',
 
       install_requires=[
         'setuptools',
+        'ftw.upgrade',
         # -*- Extra requirements: -*-
         ],
 
