@@ -5,6 +5,10 @@ Changelog
 3.0b8 (unreleased)
 ------------------
 
+- Use Plone default views for File and Link.
+  Be less harmful.
+  [mathias.leimgruber]
+
 - Move package to github.
   [jone]
 

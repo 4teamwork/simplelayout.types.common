@@ -19,6 +19,7 @@
 
     <include package=".browser" />
     <include package=".extender" />
+    <include package=".upgrades" />
 
 
     <class class="simplelayout.types.common.content.paragraph.Paragraph">
