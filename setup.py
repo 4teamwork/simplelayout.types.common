@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = '3.0b8.dev0'
+version = '3.0c1'
 
 setup(name='simplelayout.types.common',
       version=version,
