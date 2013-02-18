@@ -55,8 +55,11 @@ textSchema = atapi.Schema((
     atapi.TextField('text',
               required=False,
               searchable=True,
-              default_input_type = 'text/html',
-              default_output_type = 'text/html',
+              allowable_content_types=('text/html', ),
+              default_content_type='text/html',
+              validators=('isTidyHtmlWithCleanup', ),
+              default_input_type='text/html',
+              default_output_type='text/x-html-safe',
               widget = atapi.RichWidget(
                         description = '',
                         label = _(u'label_body_text', default=u'Body Text'),

@@ -5,7 +5,8 @@ Changelog
 3.0c2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Text field: use text/x-html-safe output format and only allow text/html input.
+  [jone]
 
 
 3.0c1 (2013-01-24)
