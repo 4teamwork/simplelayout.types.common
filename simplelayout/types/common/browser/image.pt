@@ -2,9 +2,9 @@
 				tal:define="slclass view/getCSSClass;"
 				tal:attributes="class string:simplelayout-block-wrapper ${slclass};">
 	<a tal:attributes="name here/id" ></a>
-	
+
 	<div class="sl-img-wrapper" tal:condition="here/getImage">
-					<a  
+					<a
 						tal:attributes="
 										title context/Title;
 										href string:${context/absolute_url}/image_large">
@@ -15,6 +15,6 @@
                         <p tal:content="context/Title" tal:condition="view/showTitleOfImage"></p>
 					</a>
 	</div>
-	
+
 </div>
 <span class="visualClear">&nbsp;</span>
