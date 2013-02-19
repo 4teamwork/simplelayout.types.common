@@ -1,7 +1,6 @@
-<div class="#" id="#"
+<div class="#"
 				tal:define="slclass view/getCSSClass;"
-				tal:attributes="id here/id;
-								class string:simplelayout-block-wrapper ${slclass};">
+				tal:attributes="class string:simplelayout-block-wrapper ${slclass};">
 	<a tal:attributes="name here/id" ></a>
 	
 	<div class="sl-img-wrapper" tal:condition="here/getImage">
