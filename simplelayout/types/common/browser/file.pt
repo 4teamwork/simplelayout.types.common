@@ -1,6 +1,5 @@
-<div class="#" id="#"
-				tal:attributes="id here/id;
-								class string:simplelayout-block-wrapper;">
+<div class="#"
+				tal:attributes="class string:simplelayout-block-wrapper;">
 	<a tal:attributes="name here/id" ></a>
 	<tal:define define="accessor nocall:here/getFile;
 						field python:here.getField('file');

@@ -5,6 +5,9 @@ Changelog
 3.0c2 (unreleased)
 ------------------
 
+- Remove unused id from block, to prevent creating duplicated ids in block and anchor.
+  [Julian Infanger]
+
 - Text field: use text/x-html-safe output format and only allow text/html input.
   [jone]
 
