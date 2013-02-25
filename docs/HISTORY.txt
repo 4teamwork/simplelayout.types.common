@@ -5,6 +5,9 @@ Changelog
 3.0c2 (unreleased)
 ------------------
 
+- Fix anchor in paragraph.pt (moved befor title).
+  [mathias.leimgruber]
+
 - Remove unused id from block, to prevent creating duplicated ids in block and anchor.
   [Julian Infanger]
 
