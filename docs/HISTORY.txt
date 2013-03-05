@@ -5,6 +5,9 @@ Changelog
 3.0c2 (unreleased)
 ------------------
 
+- Remove unused action expression.
+  [Julian Infanger]
+
 - Fix anchor in paragraph.pt (moved befor title).
   [mathias.leimgruber]
 
