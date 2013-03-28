@@ -24,27 +24,27 @@
 
     <class class="simplelayout.types.common.content.paragraph.Paragraph">
         <implements interface="simplelayout.types.common.interfaces.IParagraph" />
-    </class> 
+    </class>
 
 
     <!-- make some plone default content types blockable -->
     <class class="Products.ATContentTypes.content.link.ATLink">
         <implements interface="simplelayout.base.interfaces.ISimpleLayoutBlock" />
-    </class> 
+    </class>
 
     <class class="Products.ATContentTypes.content.file.ATFile">
         <implements interface="simplelayout.base.interfaces.ISimpleLayoutBlock" />
-    </class> 
+    </class>
 
     <class class="Products.ATContentTypes.content.image.ATImage">
         <implements interface="simplelayout.base.interfaces.ISimpleLayoutBlock" />
-    </class> 
+    </class>
 
     <class class="plone.app.blob.content.ATBlob">
-        <implements 
+        <implements
             zcml:condition="installed plone.app.blob"
-            interface="simplelayout.base.interfaces.ISimpleLayoutBlock" 
+            interface="simplelayout.base.interfaces.ISimpleLayoutBlock"
         />
-    </class> 
+    </class>
 
 </configure>
