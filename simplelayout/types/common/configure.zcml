@@ -21,6 +21,7 @@
     <include package=".extender" />
     <include package=".upgrades" />
 
+    <include zcml:condition="installed ftw.lawgiver" file="lawgiver.zcml" />
 
     <class class="simplelayout.types.common.content.paragraph.Paragraph">
         <implements interface="simplelayout.types.common.interfaces.IParagraph" />

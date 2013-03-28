@@ -5,6 +5,9 @@ Changelog
 3.0c2 (unreleased)
 ------------------
 
+- Lawgiver support: map permissions.
+  [jone]
+
 - Remove unused action expression.
   [Julian Infanger]
 
