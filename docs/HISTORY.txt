@@ -2,8 +2,8 @@ Changelog
 =========
 
 
-3.0c2 (unreleased)
-------------------
+3.0 (2013-03-29)
+----------------
 
 - Lawgiver support: map permissions.
   [jone]
