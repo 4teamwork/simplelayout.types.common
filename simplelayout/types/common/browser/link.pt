@@ -12,5 +12,5 @@
         <span tal:condition="here/Description" class="documentDescription discreet" tal:content="here/Description"/>
     </div>
 </div>
-<span class="visualClear"></span>
+<span class="visualClear"><!-- --></span>
 

@@ -21,4 +21,4 @@
     </div>
 	</tal:define>
 </div>
-<span class="visualClear">&nbsp;</span>
+<span class="visualClear"><!-- --></span>

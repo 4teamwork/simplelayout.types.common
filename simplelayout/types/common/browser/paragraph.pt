@@ -47,4 +47,4 @@
     </tal:ifteaser>
 
 </div>
-<span class="visualClear">&nbsp;</span>
+<span class="visualClear"><!-- --></span>
