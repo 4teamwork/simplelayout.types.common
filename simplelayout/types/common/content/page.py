@@ -40,9 +40,9 @@ schema = atapi.Schema((
                  description_msgid="",
                  visible = {'edit' : 'visible', 'view' : 'invisible' }
                  )
-           )
-),
-)
+           ),
+
+))
 
 page_schema = ATFolder.schema.copy() + ConstrainTypesMixinSchema.copy() \
     + schema.copy()
