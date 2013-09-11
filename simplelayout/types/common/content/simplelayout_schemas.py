@@ -115,9 +115,6 @@ def finalize_simplelayout_schema(schema, folderish=False, moveDiscussion=True):
         schema.changeSchemataForField('nextPreviousEnabled', 'settings')
         schema['nextPreviousEnabled'].widget.visible = -1
 
-    if schema.has_key('text'):
-        schema['text'].validators = ValidationChain('Validator_text',validators=('handleEmptyTextField',))
-
     marshall_register(schema)
 
 
