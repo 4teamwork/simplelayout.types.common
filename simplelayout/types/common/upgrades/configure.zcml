@@ -40,4 +40,16 @@
         for="Products.CMFPlone.interfaces.IMigratingPloneSiteRoot"
         provides="Products.GenericSetup.interfaces.EXTENSION"
         />
+
+    <!-- 3100 -> 3101 -->
+    <genericsetup:upgradeStep
+        title="Fix mimetype of broken, empty paragraphs."
+        description=""
+        source="3100"
+        destination="3101"
+        handler="simplelayout.types.common.upgrades.to3101.FixParagraphMimetypes"
+        profile="simplelayout.types.common:default"
+        />
+
+
 </configure>

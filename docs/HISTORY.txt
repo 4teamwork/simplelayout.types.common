@@ -5,7 +5,9 @@ Changelog
 3.0.3 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Remove handleEmptyTextField validator, use default validators.
+  The validator makes it impossible to edit a Paragraph when it has no text content.
+  [jone]
 
 
 3.0.2 (2013-08-28)
