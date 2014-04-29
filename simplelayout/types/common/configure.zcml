@@ -11,7 +11,7 @@
     <!-- Register the installation GenericSetup extension profile -->
     <genericsetup:registerProfile
       name="default"
-      title="Simplelayout Types"
+      title="simplelayout.types.common"
       directory="profiles/default"
       description="simplelayout common types"
       provides="Products.GenericSetup.interfaces.EXTENSION"
