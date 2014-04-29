@@ -5,7 +5,8 @@ Changelog
 3.0.4 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Implement Generic Setup uninstall profile.
+  [jone]
 
 
 3.0.3 (2013-09-24)

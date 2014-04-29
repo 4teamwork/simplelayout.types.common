@@ -6,6 +6,7 @@ version = '3.0.4.dev0'
 tests_require = [
     'ftw.testing',
     'plone.app.testing',
+    'simplelayout.base',
     ]
 
 setup(name='simplelayout.types.common',
