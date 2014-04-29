@@ -26,6 +26,12 @@ Usage / Installation
   readme for details.
 
 
+Uninstall
+---------
+
+This package provides an uninstall Generic Setup profile.
+
+
 Links
 =====
 
