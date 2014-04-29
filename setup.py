@@ -3,6 +3,11 @@ import os
 
 version = '3.0.4.dev0'
 
+tests_require = [
+    'ftw.testing',
+    'plone.app.testing',
+    ]
+
 setup(name='simplelayout.types.common',
       version=version,
       description="Simplelayout component providing content types.",
@@ -33,6 +38,9 @@ setup(name='simplelayout.types.common',
         'ftw.upgrade',
         # -*- Extra requirements: -*-
         ],
+
+      tests_require=tests_require,
+      extras_require=dict(tests=tests_require),
 
       entry_points="""
       # -*- Entry points: -*-
