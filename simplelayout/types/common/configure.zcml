@@ -22,6 +22,7 @@
         title="Uninstall simplelayout.types.common"
         directory="profiles/uninstall"
         provides="Products.GenericSetup.interfaces.EXTENSION"
+        for="Products.CMFPlone.interfaces.IMigratingPloneSiteRoot"
         />
 
     <include package=".browser" />
