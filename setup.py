@@ -24,7 +24,7 @@ setup(name='simplelayout.types.common',
         ],
 
       keywords='',
-      author='4teamwork GmbH',
+      author='4teamwork AG',
       author_email='mailto:info@4teamwork.ch',
       url='https://github.com/4teamwork/simplelayout.types.common',
       license='GPL2',
