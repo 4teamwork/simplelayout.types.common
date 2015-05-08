@@ -37,8 +37,8 @@ Links
 
 - Simplelayout github project repository: https://github.com/4teamwork/simplelayout.base
 - simplelayout.types.common github project repository: https://github.com/4teamwork/simplelayout.types.common
-- Issue tracker: https://github.com/4teamwork/simplelayout.types.common/issues
-- Package on pypi: http://pypi.python.org/pypi/simplelayout.types.common
+- Issues: https://github.com/4teamwork/simplelayout.types.common/issues
+- Pypi: http://pypi.python.org/pypi/simplelayout.types.common
 
 
 Copyright
