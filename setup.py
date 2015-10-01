@@ -35,6 +35,7 @@ setup(name='simplelayout.types.common',
       zip_safe=False,
 
       install_requires=[
+        'Plone',
         'setuptools',
         'ftw.upgrade',
         # -*- Extra requirements: -*-
